@@ -1,7 +1,7 @@
 #include <esp_now.h>
 #include <WiFi.h>
 
-#define CHANNEL 3
+#define CHANNEL 1
 
 int ledR = 2;
 int buzzerPin = 5;
