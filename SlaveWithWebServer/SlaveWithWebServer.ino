@@ -1,24 +1,15 @@
-/*
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp32-esp-now-wi-fi-web-server/
-  
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
-  
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-*/
-
 #include <esp_now.h>
 #include <WiFi.h>
 #include "ESPAsyncWebServer.h"
 #include <Arduino_JSON.h>
+#include <WiFiClient.h>
 
 #define CHANNEL 1
 
 // Replace with your network credentials (STATION)
-const char* ssid = "DAAF 2.4GHz";
-const char* password = "kj23812382";
+const char* ssid = "INSERT";
+const char* password = "INSERT";
+const char* server_ip = "INSERT";
 
 int ledR = 2;
 
