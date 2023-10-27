@@ -4,6 +4,11 @@
 #include <esp_wifi.h> // only for esp_wifi_set_channel()
 #include <LiquidCrystal_I2C.h>
 
+const char* ssid = "sua_rede_wifi";
+const char* password = "sua_senha_wifi";
+const char* server_ip = "endereco_do_servidor";
+const int server_port = 80; // Porta do servidor
+
 esp_now_peer_info_t slave;
 #define CHANNEL 3
 #define PRINTSCANRESULTS 0
@@ -235,6 +240,8 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
 
 void setup() {
   Serial.begin(115200);
+
+  WifiCollector();
 
   pinMode(ledR, OUTPUT);
   pinMode(botR, INPUT);

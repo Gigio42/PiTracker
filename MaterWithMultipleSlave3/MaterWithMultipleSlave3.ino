@@ -140,7 +140,7 @@ struct DataPackage {
 void sendData() {
 
   DataPackage package;
-  
+
   if(digitalRead(buttonBlynk) == HIGH)
   {
     package.data1 = 1;
@@ -220,9 +220,9 @@ void setup() {
   lcd.backlight();
 
   lcd.setCursor(0,0);   
-  lcd.print("Disp :");
+  lcd.print("disp:");
   lcd.setCursor(0,1);   
-  lcd.print("Dist:");
+  lcd.print("dist:");
 
   WiFi.mode(WIFI_STA);
   Serial.println("ESPNow/Multi-Slave/Master Example");
@@ -272,22 +272,22 @@ void ManageSwitch() {
   prev = current;
 
   if (SlaveCnt > 0 && SlaveName[switcher]!=0){
-    lcd.setCursor(6,0); 
+    lcd.setCursor(5,0); 
     lcd.print("           ");
     delay(10);
 
-    lcd.setCursor(6,0); 
-    lcd.print(SlaveName[switcher].substring(SlaveName[switcher].indexOf('.') + 1));
+    lcd.setCursor(5,0); 
+    lcd.print(SlaveName[switcher]);
   }
   else{
-    lcd.setCursor(6,0); 
+    lcd.setCursor(5,0); 
     lcd.print("Not Found");
     forgotMode = false;
     lcd.setCursor(5,1);
     lcd.print("Connect it");
   }
-  lcd.setCursor(4,0);  
-  lcd.print(switcher+1);
+  lcd.setCursor(3,0);  
+  lcd.print(switcher);
 }
 
 void ManageForgotMode() {

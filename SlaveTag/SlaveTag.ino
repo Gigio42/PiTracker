@@ -9,6 +9,7 @@ int buzzerPin = 5;
 struct DataPackage {
   uint8_t data1;
   uint8_t data2;
+  uint8_t data3;
 };
 
 // Init ESP Now with fallback
@@ -28,7 +29,7 @@ void InitESPNow() {
 
 // config AP SSID
 void configDeviceAP() {
-  const char *SSID = "Slave_1";
+  const char *SSID = "Slave.Dark";
   bool result = WiFi.softAP(SSID, "", CHANNEL, 0);
   if (!result) {
     Serial.println("AP Config failed.");
@@ -69,16 +70,20 @@ void OnDataRecv(const uint8_t *mac_addr, const uint8_t *data, int data_len) {
     // Agora você pode acessar os valores data1 e data2 da estrutura de dados
     if (package->data1 == 1) {
       digitalWrite(ledR, HIGH);
+      Serial.print("AAAAAAAAAA");
     } else {
       digitalWrite(ledR, LOW);
     }
 
-    if (package->data2 == 1) {
-      digitalWrite(buzzerPin, HIGH);
+    /*if (package->data2 == 1) {
+      digitalWrite(ledR, HIGH);
     }
     else{
-      digitalWrite(buzzerPin, LOW);
-    }
+      digitalWrite(ledR, LOW);
+    }*/
+
+    Serial.print("data3: ");
+    Serial.println(package->data3);
   }
 
   Serial.print("Last Packet Recv from: "); Serial.println(macStr);
